@@ -82,8 +82,12 @@ export default class Repo {
     return this.storage.repo.bankAccounts[id]
   }
 
-  categories() {
-    return _.values(this.storage.repo.categories)
+  categories(listHidden = false) {
+    let categories = _.values(this.storage.repo.categories)
+    return _.chain(categories)
+      .sortBy(['name'])
+      .filter(a => (listHidden ? true : !a.hidden))
+      .value()
   }
 
   category(id) {
