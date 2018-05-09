@@ -11,7 +11,7 @@
           Category Updated
         </v-snackbar>
 
-        <v-flex xs4>
+        <v-flex xs4 class="pr-4">
           <v-text-field append-icon="search"
                         label="Search"
                         single-line
@@ -20,7 +20,13 @@
                         class="">
           </v-text-field>
         </v-flex>
-        <v-flex xs8 class="text-xs-right">
+        <v-flex xs2 class="pt-3">
+          <v-switch label="Show hidden"
+                    v-model="showHidden"
+                    color="blue darken-1">
+          </v-switch>
+        </v-flex>
+        <v-flex xs6 class="text-xs-right">
           <add-category-modal @saved="categoryAdded"></add-category-modal>
         </v-flex>
 
@@ -95,7 +101,8 @@ export default {
       categoryAddedSnackbar: false,
       categoryUpdatedSnackbar: false,
       editCategory: null,
-      editCategoryModal: false
+      editCategoryModal: false,
+      showHidden: false
     }
   },
   computed: {
@@ -110,7 +117,7 @@ export default {
         this.updatedCategory = null
       }
       return this.$repo.isLoaded()
-        ? _.chain(this.$repo.categories(true))
+        ? _.chain(this.$repo.categories(this.showHidden))
             .map(c =>
               Object.assign({}, c, {
                 fullName: this.$format.categoryFullName(c.id),

@@ -66,7 +66,7 @@ export default {
       }
     },
     shrinkCategories() {
-      this.$repo.categories().forEach(category => {
+      this.$repo.categories(true).forEach(category => {
         let count = this.$repo.transactionsForCategory(category.id).length
         if (category.subAccountIds == null && count === 0) {
           delete this.$repo.storage.repo.categories[category.id]
