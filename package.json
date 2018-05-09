@@ -19,7 +19,7 @@
     "test": "npm run unit && npm run e2e",
     "unit": "karma start test/unit/karma.conf.js",
     "postinstall": "npm run lint:fix",
-    "analyze": "sonar-scanner -Dsonar.projectKey=my-account-manager -Dsonar.projectVersion=$npm_package_version -Dsonar.sources=src -Dsonar.javascript.lcov.reportPath=test/unit/coverage/lcov.info"
+    "analyze": "sonar-scanner -Dsonar.projectKey=my-account-manager -Dsonar.projectVersion=$npm_package_version -Dsonar.sources=src -Dsonar.javascript.lcov.reportPaths=test/unit/coverage/lcov.info"
   },
   "build": {
     "productName": "My Account Manager",
