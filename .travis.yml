@@ -6,6 +6,8 @@ dist: trusty
 language: c
 jdk:
   - oraclejdk8
+git:
+  depth: false
 matrix:
   include:
   # - os: osx
@@ -28,23 +30,23 @@ addons:
     token:
       secure: "nYXtUnMGjuv+fbzwezdd+vbiIA7ORmPpHn+BJi+0VF2XRger2vYhy6whkCoMqrJXAZ7m3568OzhPeRm+oC+JnqEeUltG8APNCO3AH680N6yQSUUIaRO2EyZtthWFdToXs8LfZ1gchkqxQVMPjFjnITn344f2+kyQm3mX9Otb8I2RtfCqHlBF//S0vLJtwZjJ31R/HKSTy9w7UJVeUlsu/X8/JZjX/h5Tb3bKtQmOhXGcYOXvfjtbwCfGCb8JLW81b1YMKX9LudhjJAAZI8iZBW2w6HTJW0IdWokt3FwzF5fIWvG/B2mBIArxYqylJnZ6Jo+U4t+VDcKX0qaPAMBsmJ2dzpXoyd0bqFGpTaZb4okI/77DmEvDs0NyiiA2dO7Qz/jfvYu2sicj50Ah1DVOd2JF1/UH3TPa92d+aj884euFKiqBNtJiySy6403OWUOwYAEyKPzSNWFEA2hiKKlDhFKcC4Dtpl/Spf5lVRd9A//Ppzo6sitbO7/mQgw39JA7jk4H1EW8HhmzkImJh4ccdJ2EoJhjfAnRFL3mo7c0cNiGHTqxQzeOMYzrUu3z8d1t+JUS7uVr/JUGGuz73tKBpTSgpLZZjeBG9H/UbKPZdhS6h7oD7cqA1XIv4a0N0UEHvxPeZTw1jP3uo1vl0oAiJcAtJCXpoWBaMTYxhhjKZio="
 before_install:
-- mkdir -p /tmp/git-lfs && curl -L https://github.com/github/git-lfs/releases/download/v1.2.1/git-lfs-$([
-  "$TRAVIS_OS_NAME" == "linux" ] && echo "linux" || echo "darwin")-amd64-1.2.1.tar.gz
-  | tar -xz -C /tmp/git-lfs --strip-components 1 && /tmp/git-lfs/git-lfs pull
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils; fi
+  - mkdir -p /tmp/git-lfs && curl -L https://github.com/github/git-lfs/releases/download/v1.2.1/git-lfs-$([
+    "$TRAVIS_OS_NAME" == "linux" ] && echo "linux" || echo "darwin")-amd64-1.2.1.tar.gz
+    | tar -xz -C /tmp/git-lfs --strip-components 1 && /tmp/git-lfs/git-lfs pull
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils; fi
 install:
-- export DISPLAY=':99.0'
-- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-- nvm install 7
-- curl -o- -L https://yarnpkg.com/install.sh | bash
-- source ~/.bashrc
-- npm install -g xvfb-maybe
-- yarn
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - nvm install 7
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - source ~/.bashrc
+  - npm install -g xvfb-maybe
+  - yarn
 script:
-- xvfb-maybe node_modules/.bin/karma start test/unit/karma.conf.js
-#- yarn run pack && xvfb-maybe node_modules/.bin/mocha test/e2e
-# - yarn run build
-- yarn run analyze
+  - xvfb-maybe node_modules/.bin/karma start test/unit/karma.conf.js
+  #- yarn run pack && xvfb-maybe node_modules/.bin/mocha test/e2e
+  # - yarn run build
+  - yarn run analyze
 branches:
   only:
   - master
