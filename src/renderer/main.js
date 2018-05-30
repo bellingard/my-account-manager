@@ -29,3 +29,5 @@ new Vue({
   store,
   template: '<App/>'
 }).$mount('#app')
+
+alert('boom')

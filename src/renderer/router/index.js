@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+alert('foo')
+
 export default new Router({
   routes: [
     {
