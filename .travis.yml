@@ -50,3 +50,4 @@ script:
 branches:
   only:
   - master
+  - release/1234
