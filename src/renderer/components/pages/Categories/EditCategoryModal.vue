@@ -3,7 +3,7 @@
     <v-card v-if="this.category !== null">
       <v-card-title>
         <div>
-          <span class="headline">Edit Category</span>
+          <span class="headline">Edit Category ({{ this.category.id }})</span>
         </div>
       </v-card-title>
       <v-card-text>

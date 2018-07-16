@@ -56,7 +56,7 @@
             <synchronize-modal :account="getAccountId()" @saved="refreshAccountData"></synchronize-modal>
             <payee-finder-modal></payee-finder-modal>
           </div>
-          <div class="mt-5">
+          <div class="mt-3">
             <v-text-field append-icon="search"
                           label="Search"
                           single-line
@@ -64,6 +64,9 @@
                           v-model="search"
                           class="">
             </v-text-field>
+          </div>
+          <div class="mt-5">
+            <evolution-chart :transactions="transactions" :height="400"></evolution-chart>
           </div>
         </v-flex>
 
@@ -136,11 +139,12 @@ import PayeeFinderModal from './Accounts/PayeeFinderModal'
 import SynchronizeModal from './Accounts/SynchronizeModal'
 import EditTransactionModal from './Accounts/EditTransactionModal'
 import EditCardPaymentsModal from './Accounts/EditCardPaymentsModal'
+import EvolutionChart from './Accounts/EvolutionChart'
 import * as _ from 'lodash'
 
 export default {
   name: 'accounts',
-  components: { PayeeFinderModal, SynchronizeModal, EditTransactionModal, EditCardPaymentsModal },
+  components: { PayeeFinderModal, SynchronizeModal, EditTransactionModal, EditCardPaymentsModal, EvolutionChart },
   props: ['accountId'],
   data() {
     return {
