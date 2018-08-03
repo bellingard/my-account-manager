@@ -5,7 +5,7 @@ class TestCommand extends Command
 {
     /**
      * The name and signature of the console command.
-     *
+     * TODO
      * @var string
      */
     protected $signature = 'command:name';
