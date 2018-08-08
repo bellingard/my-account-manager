@@ -1,6 +1,6 @@
 # My Account Manager
 
-Personal project to have fun coding in JS + Vue on Electron. And hopeful to migrate it soon to TypeScript.
+Personal project to have fun coding in JS + Vue on Electron. And hopeful to migrate it soon to TypeScript. :)
 
 [![Build status](https://travis-ci.org/bellingard/my-account-manager.svg?branch=master)](https://travis-ci.org/bellingard/my-account-manager) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=my-account-manager&metric=alert_status)](https://sonarcloud.io/dashboard/index/my-account-manager) [![Release](https://img.shields.io/github/release/bellingard/my-account-manager.svg)](https://github.com/bellingard/my-account-manager/releases)
 
