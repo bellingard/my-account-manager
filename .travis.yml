@@ -45,6 +45,3 @@ script:
 #- yarn run pack && xvfb-maybe node_modules/.bin/mocha test/e2e
 - yarn run build
 - yarn run analyze
-branches:
-  only:
-  - master
