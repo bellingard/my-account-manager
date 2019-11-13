@@ -17,7 +17,7 @@ class TestCommand extends Command
     protected $description = 'Command description';
     /**
      * Create a new command instance.
-     *
+     * TODO
      * @return void
      */
     public function __construct()
