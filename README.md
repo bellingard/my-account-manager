@@ -1,4 +1,4 @@
-# My Account Manager
+# My Account Manager :)
 
 Personal project to have fun coding in JS + Vue on Electron. And hopeful to migrate it soon to TypeScript.
 
