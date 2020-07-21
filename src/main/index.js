@@ -62,6 +62,8 @@ function createWindow() {
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 
+  alert('baaar')
+  
   mainWindow.on('closed', () => {
     mainWindow = null
   })
